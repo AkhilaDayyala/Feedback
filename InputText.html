@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Input Feedback</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .container-custom {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        .input-container, .output-container {
+            margin: 10px 0;
+            text-align: center;
+        }
+        .btn-custom {
+            border: 2px solid blue;
+            margin-top: 10px;
+        }
+        .textarea-custom {
+            resize: both;
+            overflow: auto;
+            border: 2px solid red;
+        }
+        h6 {
+            color: red;
+        }
+    </style>
+    <script>
+        function add() {
+            let data = document.getElementById("tet").value;
+            let output = document.getElementById("output").value;
+            document.getElementById("output").value = output + (output ? '\n' : '') + data;
+            document.getElementById("tet").value = ''; 
+        }
+    </script>
+</head>
+<body>
+    <div class="container container-custom">
+        <div class="row input-container">
+            <div class="col-lg-6">
+                <h6>Feedback</h6>
+                <textarea id="tet" class="form-control textarea-custom" placeholder="Enter your feedback"></textarea>
+            </div>
+            <div class="col-lg-6">
+                <h6>Add Feedback</h6>
+                <button onclick="add()" class="btn btn-primary btn-custom">Click Here</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <h6>All Feedbacks</h6>
+                <textarea id="output" class="form-control textarea-custom" readonly></textarea>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
